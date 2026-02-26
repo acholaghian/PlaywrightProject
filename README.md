@@ -2,7 +2,7 @@ This is a simple test automation framework based on Playwright and Pytest. It ha
 
 SETUP
 
-1) Install Python 3.12 or greater.
+1) Install Python 3.12.3 or greater.
 2) Clone this repository.
 3) In a terminal, navigate to the project root directory in your local cloned repo, and run the following:
 
