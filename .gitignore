@@ -1,0 +1,20 @@
+# Environment config file
+config/env.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env
+env/
+
+# Pytest
+.pytest_cache/
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
