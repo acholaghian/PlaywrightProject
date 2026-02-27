@@ -14,32 +14,35 @@ class Config():
             data =json.load(file)
         return data[self.env]
 
-    # Getting the base URL for the website from the JSON file, or from TEST_ENV as fallback
+    # Get base URL for the website from the env.json file, or from TEST_ENV as fallback
     @property
     def base_url(self):
-        return self.config_data["base_url"]
+        base_url = self.config_data.get("base_url")
         if not base_url:
-            return os.getenv("TEST_BASEURL") # If no data from env.json, fallback to TEST_ENV paramter
-            if not base_url:
-                raise ValueError("BASE URL not set in environment file nor provided as TEST_ENV parameter")
+            base_url= os.getenv("TEST_BASEURL")
+        if not base_url:
+            raise ValueError("Base URL not set in config or TEST_BASEURL")
+        return base_url
     
-    # Supply the credential by running TEST_USERNAME=<youruser>
+    # Getting username from env.json file, or from TEST_ENV as fallback
     @property
     def username(self):
-        return self.config_data["username"]
+        username = self.config_data.get("username")
         if not username:
-            return os.getenv("TEST_USERNAME") # If no data from env.json, fallback to TEST_ENV parameter
-            if not username:
-                raise ValueError("USERNAME not set in environment file nor provided as TEST_ENV parameter")
+            username= os.getenv("TEST_USERNAME")
+        if not username:
+            raise ValueError("Username not set in config or TEST_USERNAME")
+        return username
     
-    # Supply the credential by running TEST_PASSSWORD=<yourpass>
+    # Get password from the env.json file, or from TEST_ENV as fallback
     @property
     def password(self):
-        return self.config_data["password"]
+        password = self.config_data.get("password")
         if not password:
-            return os.getenv("TEST_PASSWORD") # If no data from env.json, fallback to TEST_ENV parameter
-            if not password:
-                raise ValueError("PASSWORD not set in environment file nor provided as TEST_ENV parameter")
+            password = os.getenv("TEST_PASSWORD")
+        if not password:
+            raise ValueError("Password not set in config or TEST_PASSWORD")
+        return password
 
 # Module-level instance for test environment configuration
 # Run TEST_ENV=prod pytest to use this
