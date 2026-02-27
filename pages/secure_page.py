@@ -1,5 +1,4 @@
-from playwright.sync_api import Page, expect
-from config.config import config
+from playwright.sync_api import Page
 
 ## Webpage that gets displayed when user successfully logs in on Login Page
 class SecurePage:
