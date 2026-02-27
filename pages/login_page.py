@@ -39,7 +39,7 @@ class LoginPage:
         self.user_entry().fill(usern)
         self.password_entry().fill(passw)
     
-    # Logs in with test_env credentials, intended for use in fixture to get to Secure Page.
+    # Logs in with config-provided credentials, intended for use in fixture to get to Secure Page.
     def login(self):
         self.fill_credentials(config.username, config.password)
         self.login_button().click()
