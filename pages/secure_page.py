@@ -1,10 +1,12 @@
 from playwright.sync_api import Page
-
+from config.config import config
 
 ## Webpage that gets displayed when user successfully logs in on Login Page
 class SecurePage:
     def __init__(self, page: Page):
         self.page = page
+        self.config = config
+        self.url = self.config.base_url + "/secure"
 
     def header(self):
         return self.page.get_by_role("heading", name="Secure Area", exact=True)

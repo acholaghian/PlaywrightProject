@@ -1,13 +1,15 @@
 import pytest
 from pages.login_page import LoginPage
 from pages.secure_page import SecurePage
-from playwright.sync_api import Page
+from pages.dynamic_content_page import DynamicContentPage
+from playwright.sync_api import Page, expect
 
 
 @pytest.fixture
 def login_page(page: Page):
     lp = LoginPage(page)
     lp.navigate()
+    expect(page).to_have_url(lp.url)
     return lp
 
 
@@ -17,5 +19,13 @@ def secure_page(page: Page):
     sp = SecurePage(page)
     lp = LoginPage(page)
     lp.navigate()
+    expect(page).to_have_url(lp.url)
     lp.login()
+    expect(page).to_have_url(sp.url)
     return sp
+
+@pytest.fixture
+def dynamic_content_page(page: Page):
+    dcp = DynamicContentPage(page)
+    dcp.navigate()
+    return dcp

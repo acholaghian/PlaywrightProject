@@ -10,9 +10,10 @@ class LoginPage:
         self.page = page
         # Passing the module-level config instance so this class can use its base URL and credentials
         self.config = config
+        self.url = self.config.base_url + "/login"
 
     def navigate(self):
-        self.page.goto(self.config.base_url + "/login")
+        self.page.goto(self.url)
 
     def header(self):
         return self.page.get_by_role("heading", name="Login Page")
