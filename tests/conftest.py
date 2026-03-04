@@ -24,6 +24,7 @@ def secure_page(page: Page):
     expect(page).to_have_url(sp.url)
     return sp
 
+
 @pytest.fixture
 def dynamic_content_page(page: Page):
     dcp = DynamicContentPage(page)
