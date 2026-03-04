@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 from config.config import config
 
 
@@ -59,3 +59,33 @@ class DynamicControlsPage:
 
     def confirmation_message(self, text):
         return self.page.locator(id="message", text=text)
+
+    # Methods for enabling/disabling elements to be used for test setup.
+
+    def enable_checkbox(self):
+        if not self.checkbox().is_visible():
+            self.add_button().click()
+            not expect(self.checkbox()).to_be_hidden()
+        else:
+            return
+    
+    def disable_checkbox(self):
+        if self.checkbox().is_visible():
+            self.remove_button().click()
+            expect(self.checkbox()).to_be_hidden()
+        else:
+            return
+    
+    def enable_textbox(self):
+        if self.textbox().is_disabled():
+            self.enable_button().click()
+            expect(self.textbox()).to_be_enabled
+        else:
+            return
+    
+    def disable_textbox(self):
+        if not self.textbox().is_disabled():
+            self.disable_button().click()
+            expect(self.textbox()).to_be_disabled
+        else:
+            return
