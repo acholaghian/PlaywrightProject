@@ -15,6 +15,14 @@ def test_disable_checkbox(dynamic_controls_page: DynamicControlsPage, page: Page
     dynamic_controls_page.remove_button().click()
     expect(dynamic_controls_page.checkbox()).to_be_hidden()
 
+# Verify that checkbox can be checked
+def test_check_checkbox(dynamic_controls_page: DynamicControlsPage, page: Page):
+    # First setup test by enabling checkbox
+    dynamic_controls_page.enable_checkbox()
+    # Now run test case
+    dynamic_controls_page.checkbox().check()
+    expect(dynamic_controls_page.checkbox()).to_be_checked()
+
 # Verify the textbox can be enabled
 def test_enable_textbox(dynamic_controls_page: DynamicControlsPage, page: Page):
     # First setup test by disabling textbox
