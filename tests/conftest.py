@@ -32,6 +32,7 @@ def dynamic_content_page(page: Page):
     dcp.navigate()
     return dcp
 
+
 @pytest.fixture
 def dynamic_controls_page(page: Page):
     dcp = DynamicControlsPage(page)
