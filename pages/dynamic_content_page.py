@@ -16,16 +16,15 @@ class DynamicContentPage:
     def header(self):
         return self.page.get_by_role("heading", name="Dynamic Content")
     
-    ## Locator for dynamic images; each one has an index.
-    def dynamic_image(self, num):
-        return self.page.get_by_role("img")
+    ## Locator for dynamic content block
     
     def dynamic_content_block(self):
         return self.page.locator("#content")
 
+    # Locator for dynamic text section
+    def dynamic_text(self):
+        return self.page.locator("#content > div.row > div.large-10.columns")
     
-    def dynamic_text_row(self):
-        return self.page.locator("#content > div row")
-    
-    def dynamic_text_row_alternate(self):
-        return self.dynamic_content_block().locator(".row").locator(".large-10 columns")
+    # Locator for dynamic image
+    def dynamic_image(self):
+        return self.page.locator("#content > div.row > div.large-2.columns")

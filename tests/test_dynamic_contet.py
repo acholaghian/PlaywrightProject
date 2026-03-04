@@ -6,9 +6,13 @@ from config.config import config
 # Test cases for the Dynamic Content page
 
 
-# Test case to verify the number of dynamic text blocks
-@pytest.mark.skip(reason="WIP")
+# Verify the number of dynamic text blocks
 def test_dynamic_text_count(dynamic_content_page: DynamicContentPage, page : Page):
     expected_rows = 3
-    #expect(page.locator("#content").locator(".row").locator(".large-10.colums")).to_have_count(expected_rows)
-    expect(dynamic_content_page.dynamic_text_row_alternate()).to_have_count(expected_rows)
+    expect(dynamic_content_page.dynamic_text()).to_have_count(expected_rows)
+
+# Verify the number of dynamic images
+def test_dynamic_text_count(dynamic_content_page: DynamicContentPage, page : Page):
+    expected_rows = 3
+    expect(dynamic_content_page.dynamic_image()).to_have_count(expected_rows)
+    
