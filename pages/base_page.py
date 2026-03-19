@@ -9,6 +9,7 @@ class BasePage:
         self.page = page
         # Passing the module-level config instance so this class can use its base URL
         self.config = config
+        self.base_url = config.base_url
     
-    def navigate(self, sub_url : str):
-        self.page.goto(self.config.base_url + sub_url)
+    def open(self, sub_url : str):
+        self.page.goto(self.base_url + sub_url)

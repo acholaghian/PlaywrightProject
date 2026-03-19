@@ -1,10 +1,10 @@
 from playwright.sync_api import Page, expect
 from config.config import config
-
+from pages.base_page import BasePage
 
 # The Dynamic Controls page
-class DynamicControlsPage:
-    def __init__(self, page: Page):
+class DynamicControlsPage(BasePage):
+    def __init__(self, page: BasePage):
         self.page = page
         # Passing the module-level config instance so this class can use its base URL
         self.config = config

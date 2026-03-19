@@ -1,17 +1,14 @@
 from playwright.sync_api import Page
 from config.config import config
+from pages.base_page import BasePage
 
 
 # The Dynamic Content page. Some elements currently WIP.
-class DynamicContentPage:
-    def __init__(self, page: Page):
-        self.page = page
-        # Passing the module-level config instance so this class can use its base URL
-        self.config = config
-        self.url = config.base_url + "/dynamic_content"
+class DynamicContentPage(BasePage):
+    sub_url = "/dynamic_content"
 
-    def navigate(self):
-        self.page.goto(self.url)
+    def navigate(self, sub_url):
+        self.page.open(self, sub_url)
 
     def header(self):
         return self.page.get_by_role("heading", name="Dynamic Content")
