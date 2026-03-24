@@ -1,5 +1,4 @@
-from playwright.sync_api import Page, expect
-from config.config import config
+from playwright.sync_api import expect
 from pages.base_page import BasePage
 
 # The Dynamic Controls page
