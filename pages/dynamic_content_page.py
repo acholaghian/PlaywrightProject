@@ -5,10 +5,10 @@ from pages.base_page import BasePage
 
 # The Dynamic Content page. Some elements currently WIP.
 class DynamicContentPage(BasePage):
-    sub_url = "/dynamic_content"
+    page_url = "/dynamic_content"
 
-    def navigate(self, sub_url):
-        self.page.open(self, sub_url)
+    def navigate(self):
+        self.open(self.page_url)
 
     def header(self):
         return self.page.get_by_role("heading", name="Dynamic Content")

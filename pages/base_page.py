@@ -11,5 +11,5 @@ class BasePage:
         self.config = config
         self.base_url = config.base_url
     
-    def open(self, sub_url : str):
-        self.page.goto(self.base_url + sub_url)
+    def open(self, page_url : str):
+        self.page.goto(self.base_url + page_url)
