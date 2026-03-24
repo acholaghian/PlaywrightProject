@@ -1,6 +1,7 @@
 from playwright.sync_api import expect
 from pages.base_page import BasePage
 
+
 # The Dynamic Controls page
 class DynamicControlsPage(BasePage):
     page_url = "/dynamic_controls"
