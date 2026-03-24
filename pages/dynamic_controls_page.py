@@ -7,7 +7,7 @@ class DynamicControlsPage(BasePage):
     page_url = "/dynamic_controls"
 
     def navigate(self):
-        self.page.goto(self.url)
+        self.open(self.page_url)
 
     def page_header(self):
         return self.page.get_by_role("heading", name="Dynamic Controls")
