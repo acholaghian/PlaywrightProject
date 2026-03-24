@@ -18,8 +18,4 @@ This installs the browser binaries for Playwright to use in test runs.
 
 PLEASE NOTE: Normally such auth credentials would be shared securely among team members, and never divulged. I have opted to maintain the best practice of NOT committing credentials into the repository. However, given that this is a personal portfolio project, for the sake of expediency, I outlined where the credentials can be found.
 
-6) After putting the credentials into `env.json`, you should now be able to run all the tests. Simply entering `pytest` will run them all, but if you want to actually see the tests run, use this command:
-
-`pytest --headed --slowmo=1000`
-
-This will tell Playwright to run the tests with actual browser windows, and execute the testing steps at a visible pace.
+6) After putting the credentials into `env.json`, you should now be able to run all the tests. Simply entering `pytest` will run them all, with browser windows.
