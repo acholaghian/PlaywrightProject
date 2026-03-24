@@ -1,19 +1,14 @@
-from playwright.sync_api import Page
 from config.config import config
+from pages.base_page import BasePage
 
 
-class LoginPage:
+class LoginPage(BasePage):
+    page_url = "/login"
     error_banner_text_user = "Your username is invalid!"
     error_banner_text_password = "Your password is invalid!"
 
-    def __init__(self, page: Page):
-        self.page = page
-        # Passing the module-level config instance so this class can use its base URL and credentials
-        self.config = config
-        self.url = self.config.base_url + "/login"
-
     def navigate(self):
-        self.page.goto(self.url)
+        self.open(self.page_url)
 
     def header(self):
         return self.page.get_by_role("heading", name="Login Page")

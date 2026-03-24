@@ -10,7 +10,7 @@ from playwright.sync_api import Page, expect
 def login_page(page: Page):
     lp = LoginPage(page)
     lp.navigate()
-    expect(page).to_have_url(lp.url)
+    expect(page).to_have_url(lp.base_url + lp.page_url)
     return lp
 
 
@@ -20,9 +20,9 @@ def secure_page(page: Page):
     sp = SecurePage(page)
     lp = LoginPage(page)
     lp.navigate()
-    expect(page).to_have_url(lp.url)
+    expect(page).to_have_url(lp.base_url + lp.page_url)
     lp.login()
-    expect(page).to_have_url(sp.url)
+    expect(page).to_have_url(sp.base_url + sp.page_url)
     return sp
 
 

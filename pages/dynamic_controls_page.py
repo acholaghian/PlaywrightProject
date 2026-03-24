@@ -1,17 +1,13 @@
-from playwright.sync_api import Page, expect
-from config.config import config
+from playwright.sync_api import expect
+from pages.base_page import BasePage
 
 
 # The Dynamic Controls page
-class DynamicControlsPage:
-    def __init__(self, page: Page):
-        self.page = page
-        # Passing the module-level config instance so this class can use its base URL
-        self.config = config
-        self.url = config.base_url + "/dynamic_controls"
+class DynamicControlsPage(BasePage):
+    page_url = "/dynamic_controls"
 
     def navigate(self):
-        self.page.goto(self.url)
+        self.open(self.page_url)
 
     def page_header(self):
         return self.page.get_by_role("heading", name="Dynamic Controls")
